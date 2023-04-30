@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gyytow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gyytow
+  template:
+    metadata:
+      labels:
+        app: gyytow
+    spec:
+      containers:
+      - image: okteto.dev/gyytow:latest
+        name: gyytow
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: ParameterSSENCYPT
+          value: "chacha20-ietf-poly1305"
+        - name: AUUID
+          value: "b248260e-0c94-4866-aa97-661b2b0ec821"
